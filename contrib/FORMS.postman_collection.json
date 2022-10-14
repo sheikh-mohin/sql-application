@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "21fd3682-0387-4d0b-9a02-e1819976d709",
+		"name": "FORMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18974135"
+	},
+	"item": [
+		{
+			"name": "Experience Letter",
+			"item": [
+				{
+					"name": "Generate Experience Letter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"1\",\r\n    \"date\": \"2022-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/experience_letter/generate",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"experience_letter",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mohin raheman sheikh\",\r\n    \"mr/mrs/miss\": \"mr.\",\r\n    \"phone_number\" : \"8830186746\",\r\n    \"gender\" : \"male\",\r\n    \"ctc\" : \"300000\",\r\n    \"job_role\": \"backend devloper\",\r\n    \"join_date\": \"2020-01-01\",\r\n    \"leave_date\": \"2022-01-01\",\r\n    \"offer_valid\": \"2022-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
