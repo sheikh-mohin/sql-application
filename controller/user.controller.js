@@ -1,7 +1,7 @@
 const userService = require("../database/user.db");
 const { getResponseStructure } = require("../constants/response.structure");
 const { message, status } = require("../constants/response.constants");
-const { formatNumberLength, numToWords } = require("../utils/index.util");
+const { formatNumberLength, numToWords, capitalizeFirstLetter } = require("../utils/index.util");
 
 exports.register = async (req, res) => {
     try {
@@ -30,6 +30,7 @@ exports.register = async (req, res) => {
         let CTCinWords = await numToWords(jsonData['ctc'])
         jsonData['ctc'] = "₹ " + jsonData['ctc'];
         jsonData['phone_number'] = "+91" + jsonData['phone_number'];
+        jsonData['mr/mrs/miss'] = capitalizeFirstLetter(jsonData['mr/mrs/miss']);
         let count = await userService.getCount();
         const record = await userService.add({
             employee_id: "ID – " + formatNumberLength(parseInt(count[0].count) + 1),

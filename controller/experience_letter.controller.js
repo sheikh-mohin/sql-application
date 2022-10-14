@@ -5,14 +5,15 @@ const { expLetter } = require("../service/generatePdf");
 
 exports.createExpLetter = async (req, res) => {
     try {
-        let user = await userService.findById(req.body.id);
+        const jsonData = req.body;
+        let user = await userService.findById(jsonData.id);
         user = user[0]
         if (!user) {
             return res
                 .status(status.success)
                 .send(getResponseStructure(status.notfound, "user " + message.notFound));
         }
-        await expLetter(user, req.body.date);
+        await expLetter(user, new Date(jsonData.date));
         return res
             .status(status.success)
             .send(getResponseStructure(status.notfound, "Experience Letter " + message.pdfGenerated));

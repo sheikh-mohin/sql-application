@@ -2,12 +2,11 @@ const Joi = require('joi').extend(require('@joi/date'));
 
 exports.userRegister = Joi.object({
     name: Joi.string().lowercase().min(3).max(40).required(),
-    'mr/mrs/miss': Joi.string().required().min(2).max(5).valid(...['Mr.', 'Mrs.', 'Miss.']),
+    'mr/mrs/miss': Joi.string().required().lowercase().min(2).max(5).valid(...['mr.', 'mrs.', 'miss.']),
     phone_number: Joi.string().regex(/^[0-9]{10}$/).messages({ 'string.pattern.base': `Phone number must have 10 digits.` }).required(),
     gender: Joi.string().required().lowercase().valid(...['male', 'female', 'other']),
     ctc: Joi.string().required(),
-    designation: Joi.string().min(3).max(40).required(),
-    job_role: Joi.string().required().lowercase().min(3).max(20),
+    job_role: Joi.string().required().lowercase().min(3).max(30),
     join_date: Joi.date().format('YYYY-MM-DD').utc(),
     leave_date: Joi.date().format('YYYY-MM-DD').utc(),
     offer_valid: Joi.date().format('YYYY-MM-DD').utc(),

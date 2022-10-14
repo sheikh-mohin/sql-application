@@ -14,8 +14,8 @@ exports.expLetter = (user, currentDate) => {
     pdfDoc.fontSize(12).fillColor('black')
         .text(`This is to confirm that Mr. ${capitalizeFirstLetter(user.name)}, EMP ${user.employee_id} has been
     \nreleased from the services of Broadstairs IT Solutions (OPC) Private Limited with
-    \neffect from ${fromDate}. He was employed in the company from ${fromDate} till
-    \n${toDate}. ${user['he/she']} was last designated as ${capitalizeFirstLetter(user.designation)}. We thank ${user['him/her']} for the
+    \neffect from ${fromDate}. ${capitalizeFirstLetter(user['he/she'])} was employed in the company from ${fromDate} till
+    \n${toDate}. ${capitalizeFirstLetter(user['he/she'])} was last designated as ${capitalizeFirstLetter(user.job_role)}. We thank ${user['him/her']} for the
     \ncontribution during ${user['his/hers']} tenure with the organization and wish him all the best in his
     \nfuture endeavors.
     \n\n\nFor Broadstairs IT Solutions(OPC) Private Limited\n\n\n\n`, { align: 'left' })
